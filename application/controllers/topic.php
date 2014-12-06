@@ -22,6 +22,7 @@ class Topic extends CI_Controller {
 
 	function post($id){
 		$this->_head();
+		$this->_headstory();
 		$this->_topiclist();
 		$topic=$this->topic_model->post($id);
 		$this->load->helper(array('url','korean'));
@@ -32,6 +33,7 @@ class Topic extends CI_Controller {
 
 	function story(){
 		$this->_head();
+		$this->_headstory();
 		$this->_topiclist();
 		$this->load->helper(array('url','korean'));
 		$this->load->view('story');
@@ -49,6 +51,7 @@ class Topic extends CI_Controller {
 		}
 
 		$this->_head();
+		$this->_headstory();
 		$this->_topiclist();
 
 		$this->load->library('form_validation');
@@ -81,6 +84,7 @@ class Topic extends CI_Controller {
 
 	function modify($id){
 		$this->_head();
+		$this->_headstory();
 		$this->_topiclist();
 
 		$this->load->library('form_validation');
@@ -111,6 +115,9 @@ class Topic extends CI_Controller {
 		//var_dump($this->session->all_userdata());
 		$this->load->view('header');
 		}
+	function _headstory(){
+		$this->load->view('header_story');
+	}
 
 	function _topiclist(){
 		$topics=$this->topic_model->gets();
@@ -155,6 +162,7 @@ class Topic extends CI_Controller {
 	function upload_form(){
 		
 		$this->_head();
+		$this->_headstory();
 		$this->_topiclist();
 		$this->load->view('upload_form');
 		$this->load->view('footer');
