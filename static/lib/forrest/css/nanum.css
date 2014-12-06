@@ -1,7 +1,27 @@
 @font-face {
   font-family: 'nanum';
-  src: url('fonts/fontawesome-webfont.eot?v=4.1.0');
-  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('fonts/fontawesome-webfont862f.svg?v=4.1.0#fontawesomeregular') format('svg');
+  src: url('fonts/nanum/NanumGothic-Bold.eot?v=4.1.0');
+  src: url('fonts/nanum/NanumGothic-Bold.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('fonts/nanum/NanumGothic-Bold.woff?v=4.1.0') format('woff'), url('fonts/nanum/NanumGothic-Bold.ttf?v=4.1.0') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+.entry-excerpt {
+  display: inline-block;
+  font-family: nanum;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.topic_contents {
+  display: inline-block;
+  font-family: nanum;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
