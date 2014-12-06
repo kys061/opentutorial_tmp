@@ -2,7 +2,7 @@
 <div class="col-xs-9"> 
 	<article>
 				<div class="page-header">
-					<h1><?=$topic->title?></h1>
+					<h1 class="topic_contents"><?=$topic->title?></h1>
 				</div>
 				<?php if($this->session->userdata('is_login')){ ?>
 					<div class="btn-group pull-right">

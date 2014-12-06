@@ -6,7 +6,7 @@
 		<?php
 		foreach($topics as $entry){
 			?>
-			<li><a href="/tmp/index.php/topic/post/<?=$entry->id?>"><i class="icon-chevron-right"></i><?=$entry->title?></a></li>
+			<li><a href="/tmp/index.php/topic/post/<?=$entry->id?>" class="topic_contents"><i class="icon-chevron-right"></i><?=$entry->title?></a></li>
 			<?php
 		}
 		?>
