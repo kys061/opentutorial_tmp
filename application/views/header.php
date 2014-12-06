@@ -27,6 +27,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/tmp/static/lib/forrest/css/layerslider.css">
     <link rel="stylesheet" href="/tmp/static/lib/forrest/css/style.css">
+    <link rel="stylesheet" href="/tmp/static/lib/forrest/css/nanum.css">
     <link rel="stylesheet" href="/tmp/static/lib/forrest/css/layout.css">
     <link rel="stylesheet" href="/tmp/static/lib/forrest/css/font-awesome.css">
     <link rel="stylesheet" href="/tmp/static/lib/forrest/css/magnific-popup.css">
