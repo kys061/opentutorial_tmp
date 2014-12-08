@@ -48,7 +48,7 @@ class Topic extends MY_Controller {
 		
 		if(!$this->session->userdata('is_login')){
 			$this->load->helper('url');
-            redirect('/auth/login?returnURL='.rawurlencode(site_url('/topic/add/')));
+			redirect('/auth/login?returnURL='.rawurlencode(site_url('/topic/add/')));
 		}
 
 		$this->_head();
@@ -69,6 +69,33 @@ class Topic extends MY_Controller {
 		else
 		{
 			$topic_id = $this->topic_model->add($this->input->post('title'), $this->input->post('description'));
+ //send e-mail
+			$this->load->model('user_model');
+			$users = $this->user_model->gets();
+
+			$this->load->library('email');
+			$this->email->initialize(array(
+				'mailtype'=>'html',
+				'protocol'=>'smtp',
+				'smtp_host'=>'ssl://smtp.naver.com',
+				'smtp_user'=>'kys061',
+				'smtp_pass'=>'yt#$09yt',
+				'smtp_port'=>'465',
+				'smtp_timeout'=>'10'
+				));
+
+
+                        //foreach($users as $user){
+			$this->email->from('kys061@naver.com', 'Kang');
+			$this->email->to($user->email);
+			$this->email->subject('새로운 글이 등록 되었습니다.');
+			$this->email->message('<a href="'.site_url('/topic/post/'.$topic_id).'">'.$this->input->post('title').'</a>');
+
+			$this->email->send();
+                                //var_dump($user);
+                        //}
+
+			
 			$this->load->helper('url');
 			redirect('/topic/post/'.$topic_id);
 		}
@@ -125,7 +152,7 @@ class Topic extends MY_Controller {
 		$config['max_height']  = '5000';
 		$this->load->library('upload', $config);
 
-			if ( ! $this->upload->do_upload("upload"))
+		if ( ! $this->upload->do_upload("upload"))
 		{
 			echo "<script> alert('Upload Fail".$this->upload->display_errors('','')."') </script>";
 			
