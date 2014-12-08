@@ -11,8 +11,8 @@ class Auth extends MY_Controller {
 
 		$this->_head();
 		//$this->load->view('header_story');
-		$this->load->view('login');
-		//$this->load->view('footer');
+		$this->load->view('login', array('returnURL'=>$this->input->get('returnURL')));
+		$this->_footer();
 	}
 	function logout(){
 
@@ -53,24 +53,34 @@ class Auth extends MY_Controller {
 
 
 	function authentication(){
-		//var_dump($this->config->item('authentication'));
-		$authentication = $this->config->item('authentication');
-		
+                //var_dump($this->config->item('authentication'));
+                //$authentication = $this->config->item('authentication');
+		$this->load->model('user_model');
+		$user = $this->user_model->getByEmail(array('email'=>$this->input->post('email')));
+		if(!function_exists('password_hash')){
+			$this->load->helper('password');
+		}
 		if (
-			$this->input->post('id') == $authentication['id'] && 
-			$this->input->post('password') == $authentication['password']
+			$this->input->post('email') == $user->email &&
+			password_verify($this->input->post('password'), $user->password)
+                        //$this->input->post('password') == $user->password
 			)
 		{
 			$this->session->set_userdata('is_login', true);
-			$this->load->helper('url');
-			redirect("/topic");
-		} 
-		else 
+			$returnURL = $this->input->get('returnURL');
+
+			if($returnURL === false){
+				$returnURL = '/';
+			}else {
+				redirect($returnURL);
+			}
+		}
+		else
 		{
 			$this->session->set_flashdata('message','LOGIN FAIL');
-
 			$this->load->helper('url');
 			redirect('/auth/login');
 		}
 	}
+
 }

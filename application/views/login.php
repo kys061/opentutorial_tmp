@@ -4,7 +4,7 @@
 <div class="modal-header">
   <h3>LOGIN</h3>
 </div>
-<form class="form-horizontal" action="/tmp/auth/authentication" method="POST">
+<form class="form-horizontal" action="<?=site_url('/auth/authentication?returnURL='.rawurlencode($returnURL)) ?>" method="POST">
 <div class="modal-body">
 <div class="control-group">
   <label class="control-label" for="inputEmail">ID</label>
