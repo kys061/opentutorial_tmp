@@ -9,11 +9,11 @@
 <div class="control-group">
   <label class="control-label" for="inputEmail">ID</label>
   <div class="controls">
-    <input type="text" id="id" name="id" placeholder="id" />
+    <input type="text" id="email" name="email" placeholder="email" />
   </div>
 </div>
 <div class="control-group">
-  <label class="control-label" for="inputPassword">Password</label>
+  <label class="control-label" for="inputPassword">PassWord</label>
   <div class="controls">
     <input type="password" id="inputPassword" name="password" placeholder="Password" />
   </div>
@@ -25,11 +25,4 @@
 </div>
 </form>
 </div>
-          
-
-
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/tmp/static/lib/bootstrap/js/bootstrap.min.js"></script>            
-
-            </body>
-        </html>
+ 

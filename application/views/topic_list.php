@@ -2,6 +2,7 @@
 <div class="col-xs-3">
        
 	<!--Sidebar content-->
+	<?php if($this->session->userdata('is_login')){ ?>
 	<ul class="nav nav-list bs-docs-sidenav affix">
 		<?php
 		foreach($topics as $entry){
@@ -11,4 +12,6 @@
 		}
 		?>
 	</ul>
+	<?php } else { ?>
+	<?php } ?>
 </div>

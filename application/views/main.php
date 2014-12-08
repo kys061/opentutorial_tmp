@@ -82,10 +82,11 @@
             <div class="top-social">
               <ul id="social-area-top">
                 <?php if($this->session->userdata('is_login')){ ?>
-                  <li><a href="/tmp/auth/logout">LOG OUT</a></li>
+                  <li><a href="/tmp/auth/logout">Log Out</a></li>
                   <?php } else { ?>
-                  <li><a href="/tmp/auth/login">Login</a></li>
+                  <li><a href="/tmp/auth/login">Log In</a></li>
                   <?php } ?>
+                  <li><a href="/tmp/auth/register">회원가입</a></li>
               </ul>
             </div>
           </div>

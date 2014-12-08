@@ -84,6 +84,8 @@
   								<?php } else { ?>
   								<li><a href="/tmp/auth/login">Log In</a></li>
   								<?php } ?>
+						        <li><a href="/tmp/auth/register">회원가입</a></li>
+
                <!-- <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                 <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
