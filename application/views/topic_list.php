@@ -15,21 +15,22 @@
 		<tbody >
 			<?php
 		//echo count($topics);
-			foreach($topics as $entry){
+			foreach($list as $entry){
 				?>
 				<tr>
 					<td><a href="#" class="topic-id"><?=$entry->id?></a></td>
-					<td><a href="/tmp/index.php/topic/post/<?=$entry->id?>" class="topic_contents"><?=$entry->title?></a></td>
+					<td><a href="/tmp/topic/post/<?=$entry->id?>" class="topic_contents"><?=$entry->title?></a></td>
 					<td><a href="#" class="topic-created"><?=$entry->created?></a></td>
 				</tr>
 				<?php
 			}
 			?>
-			<tr>
-			<td></td>
-			<td><?php echo $pages; ?></td>
-			</tr>
 		</tbody>
+		<tfoot>	
+			<tr>
+			<th colspan="3"><?php echo $pagination; ?></th>
+			</tr>
+		</tfoot>
 	</table>
 	<?php } else { ?>
 	<?php } ?>
@@ -37,10 +38,10 @@
 </div>
 <div class="col-xs-12"> 
 	
-					<div class="btn-group pull-right">
-						<a href="/tmp/index.php/topic/add" class="btn btn-small">ADD</a>
-			</div>
-		
+	<div class="btn-group pull-right">
+		<a href="/tmp/topic/add" class="btn btn-small">ADD</a>
+	</div>
+
 
 </div>
 

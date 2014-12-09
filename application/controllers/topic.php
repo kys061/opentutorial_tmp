@@ -23,11 +23,11 @@ class Topic extends MY_Controller {
 	function post($id){
 		$this->_head();
 		$this->_subhead();
-		//$this->_sidebar();
 		$topic=$this->topic_model->post($id);
 		$this->load->helper(array('url','korean'));
 		$this->load->view('post', array('topic'=>$topic));
 		$topic_id = $this->uri->segment(3);
+		$this->_sidebar();
 		$this->_footer();
 	}
 
