@@ -115,7 +115,7 @@
                       </a>
                     </li>
                     <li class="cl-effect-4">
-                      <a href="/tmp/topic/story"><span>STORY</span></a>
+                      <a href="/tmp/topic/tlist"><span>List</span></a>
                     </li>
                     <li class="cl-effect-4">
                       <a href=""><span>Portfolio</span></a>

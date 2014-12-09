@@ -19,9 +19,9 @@ class MY_Controller extends CI_Controller {
 
     }
 	function _sidebar(){
-		$topics = $this->topic_model->gets();
+		$topics = $this->topic_model->get_list();
 		$this->load->library('pagination');
-		$config['base_url'] = 'http://localhost/topic/sidebar/';
+		$config['base_url'] = 'http://localhost/tmp/topic/tlist';
 		$config['total_rows'] = count($topics);
 		$config['per_page'] = 5; 
 		$this->pagination->initialize($config); 
@@ -30,8 +30,8 @@ class MY_Controller extends CI_Controller {
 
 
 	}
-    function _headstory(){
-    	$this->load->view('header_story');
+    function _subhead(){
+    	$this->load->view('subheader');
     }
 
 }

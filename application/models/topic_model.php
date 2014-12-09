@@ -6,7 +6,7 @@ class Topic_model extends CI_Model {
         parent::__construct();
     }
  
-	function gets(){
+	function get_list(){
 		return $this->db->query('SELECT * FROM topic')->result();
 	}
 	function post($topic_id){

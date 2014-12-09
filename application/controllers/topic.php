@@ -22,7 +22,7 @@ class Topic extends MY_Controller {
 
 	function post($id){
 		$this->_head();
-		$this->_headstory();
+		$this->_subhead();
 		//$this->_sidebar();
 		$topic=$this->topic_model->post($id);
 		$this->load->helper(array('url','korean'));
@@ -31,30 +31,14 @@ class Topic extends MY_Controller {
 		$this->_footer();
 	}
 
-	function story(){
+	function tlist(){
 		$this->_head();
-		$this->_headstory();
+		$this->_subhead();
 		$this->_sidebar();
 		$this->load->helper(array('url','korean'));
-		$this->load->view('story');
+	//	$this->load->view('');
 		//$topic_id = $this->uri->segment(3);
 		$this->_footer();
-	}
-
-	function sidebar(){
-		$this->_head();
-		$this->_headstory();
-		$topics = $this->topic_model->gets();
-		$this->load->library('pagination');
-		$config['base_url'] = 'http://localhost/topic/story/';
-		$config['total_rows'] = count($topics);
-		$config['per_page'] = 5; 
-		$this->pagination->initialize($config); 
-		$pages = $this->pagination->create_links();
-
-		$this->load->view('topic_list', array('topics'=>$topics,'pages'=>$pages));
-
-
 	}
 
 	function add(){
@@ -68,7 +52,7 @@ class Topic extends MY_Controller {
 		}
 
 		$this->_head();
-		$this->_headstory();
+		$this->_subhead();
 		$this->_sidebar();
 
 		$this->load->library('form_validation');
@@ -127,7 +111,7 @@ class Topic extends MY_Controller {
 
 	function modify($id){
 		$this->_head();
-		$this->_headstory();
+		$this->_subhead();
 		$this->_sidebar();
 
 		$this->load->library('form_validation');
@@ -191,7 +175,7 @@ class Topic extends MY_Controller {
 	function upload_form(){
 		
 		$this->_head();
-		$this->_headstory();
+		$this->_subhead();
 		$this->_sidebar();
 		$this->load->view('upload_form');
 		$this->_footer();
