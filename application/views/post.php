@@ -1,5 +1,5 @@
 
-<div class="col-xs-9"> 
+<div class="col-xs-12"> 
 	<article>
 				<div class="page-header">
 					<h1 class="topic_contents"><?=$topic->title?></h1>

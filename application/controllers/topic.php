@@ -23,7 +23,7 @@ class Topic extends MY_Controller {
 	function post($id){
 		$this->_head();
 		$this->_headstory();
-		$this->_sidebar();
+		//$this->_sidebar();
 		$topic=$this->topic_model->post($id);
 		$this->load->helper(array('url','korean'));
 		$this->load->view('post', array('topic'=>$topic));
@@ -39,6 +39,22 @@ class Topic extends MY_Controller {
 		$this->load->view('story');
 		//$topic_id = $this->uri->segment(3);
 		$this->_footer();
+	}
+
+	function sidebar(){
+		$this->_head();
+		$this->_headstory();
+		$topics = $this->topic_model->gets();
+		$this->load->library('pagination');
+		$config['base_url'] = 'http://localhost/topic/story/';
+		$config['total_rows'] = count($topics);
+		$config['per_page'] = 5; 
+		$this->pagination->initialize($config); 
+		$pages = $this->pagination->create_links();
+
+		$this->load->view('topic_list', array('topics'=>$topics,'pages'=>$pages));
+
+
 	}
 
 	function add(){
@@ -72,7 +88,7 @@ class Topic extends MY_Controller {
  //send e-mail
 			$this->load->model('user_model');
 			$users = $this->user_model->gets();
-
+/*
 			$this->load->library('email');
 			$this->email->initialize(array(
 				'mailtype'=>'html',
@@ -84,8 +100,7 @@ class Topic extends MY_Controller {
 				'smtp_timeout'=>'10'
 				));
 
-
-                        //foreach($users as $user){
+                       //foreach($users as $user){
 			$this->email->from('kys061@naver.com', 'Kang');
 			$this->email->to($user->email);
 			$this->email->subject('새로운 글이 등록 되었습니다.');
@@ -94,8 +109,7 @@ class Topic extends MY_Controller {
 			$this->email->send();
                                 //var_dump($user);
                         //}
-
-			
+                        */
 			$this->load->helper('url');
 			redirect('/topic/post/'.$topic_id);
 		}

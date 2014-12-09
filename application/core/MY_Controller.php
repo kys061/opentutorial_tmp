@@ -18,10 +18,18 @@ class MY_Controller extends CI_Controller {
     	$this->load->view('header');
 
     }
-    function _sidebar(){
-    	$topics = $this->topic_model->gets();
-    	$this->load->view('topic_list', array('topics'=>$topics));
-    }
+	function _sidebar(){
+		$topics = $this->topic_model->gets();
+		$this->load->library('pagination');
+		$config['base_url'] = 'http://localhost/topic/sidebar/';
+		$config['total_rows'] = count($topics);
+		$config['per_page'] = 5; 
+		$this->pagination->initialize($config); 
+		$pages = $this->pagination->create_links();
+		$this->load->view('topic_list', array('topics'=>$topics,'pages'=>$pages));
+
+
+	}
     function _headstory(){
     	$this->load->view('header_story');
     }
